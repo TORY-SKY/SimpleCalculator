@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keyword" content="FrontEnd Development, Hire a Developer, JAVASCRIPT">
+    <meta name="author" content="Tory">
+    <meta name="description" content="An HTML and CSS based website">
+    <title>HTML CLASS CodeSchool Africa(CALCULATOR)</title>
+    <link rel="stylesheet" href="/CSS/index.css">
+</head>
+<body>
+        
+    <div class="calculatorDiv" id="calc">
+        <div class="contentDiv">
+            <span>Tory</span>
+            <h2 class="display0" style="color: white;">Calculator</h2>
+            <div class="displayInputDiv">
+                <input type="text" class="displayValue" id="displa" placeholder="Result here">
+                <input type="text" class="displayValue" id="display">
+            </div>
+            <div id="btns">
+                <button onclick="btnFunc(1)">1</button>
+                <button onclick="btnFunc(2)">2</button>
+                <button onclick="btnFunc(3)">3</button>
+                <button onclick="btnFunc(4)">4</button>
+                <button onclick="btnFunc(5)">5</button>
+                <button onclick="btnFunc(6)">6</button>
+                <button onclick="btnFunc(7)">7</button>
+                <button onclick="btnFunc(8)">8</button>
+                <button onclick="btnFunc(9)">9</button>
+                <button onclick="btnFunc()">Sin</button>
+                <button id="plus" value="+" onclick="btnFunc('+')">+</button>
+                <button id="minus" value="-" onclick="btnFunc('-')">-</button>
+                <button id="divide" value="/" onclick="btnFunc('/')">/</button>
+                <button id="multiply" value="*" onclick="btnFunc('*')">&times;</button>
+                <button onclick="btnFunc(0)">0</button>
+                <button id="delete" value="*" onclick="delFunc()">del</button>
+                <button id="equalsTo" onclick="equalTo()">=</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="secondPhase">
+    </div>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Glory', 'Pacifico', 'Roboto', 'Tektur', 'Ysabeau SC', sans-serif;
+            background-color: #282c35;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .calculatorDiv {
+            width: 300px;
+            background-color: #394240;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .contentDiv {
+            padding: 20px;
+        }
+
+        span {
+            font-family: 'Glory', sans-serif;
+            color: white;
+            font-size: 24px;
+        }
+
+        h2 {
+            color: white;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .displayInputDiv {
+            border: 1px solid #ffffff;
+            background-color: #546269;
+            border-radius: 8px;
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .displayInputDiv input {
+            flex: 1;
+            width: 100%;
+            padding: 10px;
+            font-size: 20px;
+            background-color: transparent;
+            color: aquamarine;
+            border: none;
+            outline: none;
+            text-align: right;
+        }
+
+        #btns {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        #btns button {
+            width: 100%;
+            padding: 15px;
+            box-shadow: 0px 8px 12px 0px rgba(31, 30, 30, 0.726);
+            background-color: #546269;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #btns button:hover {
+            background-color: #3a434b;
+        }
+    </style>
+
+    <script>
+        function btnFunc(number){
+            var btns = document.getElementById("display");
+            let btnValue = btns.value;
+            btns.value += number;
+        }
+
+        function equalTo(){
+            const equaltoo = document.getElementById('display').value;
+            const evaluate = eval(equaltoo);
+            document.getElementById('displa').value = evaluate;
+        }
+
+        function delFunc(){
+            document.getElementById('display').value = "";
+            document.getElementById('displa').value = "";
+        }
+
+        document.getElementById('display').addEventListener('input', ()=>{
+            const equaltoo = document.getElementById('display').value;
+            const evaluate = eval(equaltoo);
+            document.getElementById('displa').value = evaluate;
+        })
+
+        const CreateEle = document.createElement('p');
+        </script>
